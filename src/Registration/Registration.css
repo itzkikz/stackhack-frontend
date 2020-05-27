@@ -1,0 +1,116 @@
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  input {
+    width: 100px;
+  }
+}
+
+.material-textfield {
+  position: relative;
+}
+
+label {
+  position: absolute;
+  font-size: 1rem;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  color: #5f6368;
+  padding: 0 0.3rem;
+  margin: 0 0.5rem;
+  transition: 0.1s ease-out;
+  transform-origin: left top;
+  pointer-events: none;
+}
+input {
+  width: 300px;
+  font-size: 1rem;
+  outline: none;
+  border: 1px solid #dadce0;
+  border-radius: 5px;
+  padding: 0.5rem 0.7rem;
+  color: #202124;
+  transition: 0.1s ease-out;
+}
+input:focus {
+  border-color: #7678ed;
+}
+input:focus + label {
+  color: #7678ed;
+  top: 0;
+  transform: translateY(-50%) scale(0.9);
+}
+input:not(:placeholder-shown) + label {
+  top: 0;
+  transform: translateY(-50%) scale(0.9);
+}
+select {
+  position: relative;
+  width: 300px;
+}
+
+.select-text {
+    color: #202124;
+
+  position: relative;
+  font-family: inherit;
+  background-color: transparent;
+  padding: 10px 10px 10px 10px;
+  font-size: 18px;
+  border: 1px solid #dadce0;
+  border-radius: 5px;
+}
+
+/* Remove focus */
+.select-text:focus {
+  outline: none;
+  border-color: #7678ed;
+}
+
+/* Use custom arrow */
+.select .select-text {
+  appearance: none;
+  -webkit-appearance: none;
+  color: gray;
+}
+
+.select:after {
+  position: absolute;
+  top: 18px;
+  right: 10px;
+  /* Styling the down arrow */
+  width: 0;
+  height: 0;
+  padding: 0;
+  content: "";
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid rgba(0, 0, 0, 0.12);
+
+  pointer-events: none;
+}
+
+/* LABEL ======================================= */
+.select-label {
+    position: absolute;
+    font-size: 1rem;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    color: #5f6368;
+    padding: 0 0.3rem;
+    margin: 0 0.5rem;
+    transition: 0.1s ease-out;
+    transform-origin: left top;
+    pointer-events: none;
+}
+
+/* active state */
+.select-text:focus ~ .select-label,
+.select-text:valid ~ .select-label {
+  color: #7678ed;
+  top: 0;
+  transform: translateY(-50%) scale(0.9);
+  font-size: 1rem;
+}
