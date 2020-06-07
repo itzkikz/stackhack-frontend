@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
-import Routes from './Routes';
+import Base from './Core/Base';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Routes />
+    <Base />
   </React.StrictMode>,
   document.getElementById('stackhack')
 );

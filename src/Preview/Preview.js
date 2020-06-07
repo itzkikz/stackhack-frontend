@@ -1,6 +1,5 @@
 import React from "react";
 import { API } from "../backend";
-import ImagePreview from "../Core/ImagePreview";
 
 const Preview = ({ regData, setPreview, setSuccess, setRegData }) => {
   const {
@@ -31,7 +30,7 @@ const Preview = ({ regData, setPreview, setSuccess, setRegData }) => {
   return (
     <div style={{ height: "100%" }}>
       <div className="row" >
-        <div className="col-12 col-sm-12 col-lg-7 col-md-7">
+        <div className="col-12 col-sm-12 col-lg-12 col-md-12">
           <div className="card border-0 bg-white rounded d-flex flex-column justify-content-center full-width">
             <div className="card-body">
   <h5 className="card-title">{name}</h5>
@@ -47,17 +46,15 @@ const Preview = ({ regData, setPreview, setSuccess, setRegData }) => {
             </div>
           </div>
         </div>
-        <div className="col-12 col-sm-12 col-lg-5 col-md-5  d-flex flex-column justify-content-center full-width">
-        <ImagePreview image={image_preview} />
-        {/* <img
-            height={100}
-            style={{ width: "100%" }}
-            className="img-responsive"
+        <div className="col-12 col-sm-12 col-lg-12 col-md-12  d-flex flex-column justify-content-center full-width">
+        <img
+            style={{ width: "100%",height:"180px" }}
+            className="img-responsive img-fluid img-thumbnail"
             src={image_preview}
             alt="Card"
-          ></img> */}
+          ></img>
         </div>
-        <div className="col-12 d-flex justify-content-around">
+        <div className="col-12 mt-1 d-flex justify-content-around">
           <button
             className="button"
             type="button"
