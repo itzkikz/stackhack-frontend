@@ -1,28 +1,78 @@
 import React from "react";
-import Base from "../Core/Base";
+import { API } from "../backend";
+import ImagePreview from "../Core/ImagePreview";
 
-const Preview = () => {
+const Preview = ({ regData, setPreview, setSuccess, setRegData }) => {
+  const {
+    name,
+    mobile,
+    email,
+    reg_type,
+    tickets,
+    formData,
+    image_preview,
+  } = regData;
+  const onSubmit = (event) => {
+    event.preventDefault();
+    fetch(`${API}event/register`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+      },
+      body: formData,
+    }).then(response => response.json())
+    .then(data => {
+      setRegData({...regData,reg_id:data.reg_id})
+      setSuccess(true);
+    })
+      .catch((err) => console.log(err));
+  };
+
   return (
-    <Base>
-    <div className="d-flex flex-column justify-content-center full-width align-items-center">
-    <div className="row">
-    <div className="card shadow-lg p-3 bg-white rounded"  >
-    <div className="card-body">
-      <h5 className="card-title">Kiran Nandakumar</h5>
-      <p className="card-text">kirannandakumar94@gmail.com9497216679</p>
+    <div style={{ height: "100%" }}>
+      <div className="row" >
+        <div className="col-12 col-sm-12 col-lg-7 col-md-7">
+          <div className="card border-0 bg-white rounded d-flex flex-column justify-content-center full-width">
+            <div className="card-body">
+  <h5 className="card-title">{name}</h5>
+  <p className="card-text">{email}</p>
+  <p className="card-text">{mobile}</p>
+              <p className="card-text">
+                Registeration Type<br></br>{reg_type}
+              </p>
+              <p className="card-text">
+                Number of tickets
+                <br />{tickets}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="col-12 col-sm-12 col-lg-5 col-md-5  d-flex flex-column justify-content-center full-width">
+        <ImagePreview image={image_preview} />
+        {/* <img
+            height={100}
+            style={{ width: "100%" }}
+            className="img-responsive"
+            src={image_preview}
+            alt="Card"
+          ></img> */}
+        </div>
+        <div className="col-12 d-flex justify-content-around">
+          <button
+            className="button"
+            type="button"
+            onClick={() => {
+              setPreview(false);
+            }}
+          >
+            <span>Back</span>
+          </button>
+          <button className="button" onClick={onSubmit}>
+            <span>Submit</span>
+          </button>
+        </div>
+      </div>
     </div>
-    <ul className="list-group list-group-flush">
-      <li className="list-group-item">Registeration Type<br></br>AAA</li>
-      <li className="list-group-item">Number of tickets<br/>1</li>
-    </ul>
-    <img  height={180} width={280} src="https://dps.mn.gov/divisions/dvs/PublishingImages/new-cards/mn-adult-dl.jpg" alt="Card image cap"></img>
-  </div></div>
-  <div className="mt-3" style={{width:'300px'}}>
-  <button>Back</button>
-    <button className="float-right">Submit</button>
-    </div>
-    </div>
-    </Base>
   );
 };
 

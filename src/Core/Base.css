@@ -1,6 +1,6 @@
 
 .container-fluid {
-    height: 80%;
+    height: 90%;
     /* background-color: #7678ED; */
     width: 80%;
 }
@@ -17,11 +17,8 @@
 
 }
 .button {
-    position: relative;
   
-    display: block;
-    padding: 0;
-  
+  display: block;
     overflow: hidden;
   
     border-width: 0;
@@ -29,35 +26,29 @@
     border-radius: 2px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
     
-    background-color: #2ecc71;
+    background-color: #7678ed;
     color: #ecf0f1;
     
     transition: background-color .3s;
   }
   
   .button:hover, .button:focus {
-    background-color: #27ae60;
+    background-color: #F7B801;
   }
   
-  .button > * {
-    position: relative;
-  }
-  
+ 
   .button span {
     display: block;
-    padding: 12px 24px;
+
+    padding: 6px 12px;
+    font-size: 1rem;
+  font-weight: bold;
   }
   
   .button:before {
     content: "";
+  
     
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    
-    display: block;
-    width: 0;
-    padding-top: 0;
       
     border-radius: 100%;
     
@@ -71,8 +62,6 @@
   }
   
   .button:active:before {
-    width: 120%;
-    padding-top: 120%;
     
     transition: width .2s ease-out, padding-top .2s ease-out;
   }
